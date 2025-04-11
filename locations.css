@@ -1,0 +1,519 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 80px;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  height: 8vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: top, center;
+  align-items: center;
+}
+
+
+.navbar {
+  position: fixed;
+  font-family: 'Literata Regular', serif;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.navbar .logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar nav ul li {
+  position: relative;
+}
+
+.navbar nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+
+.navbar nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* 样式化下拉菜单 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(30,30,30,0.9);
+  min-width: 200px;
+  max-width: 100vw;
+  z-index: 1000;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s,  visibility 0.3s;
+}
+
+.dropdown-content li {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.dropdown-content li a {
+  padding: 0.8rem 1.5rem;
+  display: block;
+  font-size: 1rem;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.dropdown-content li a:hover {
+  background-color: rgba(255, 255, 255, 0.1)
+}
+
+
+@media (max-width: 1200px) {
+  .navbar {
+    padding: 15px 5%;
+  }
+  .navbar .logo {
+    font-size: 1.8rem;
+  }
+  .dropdown-content {
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    padding: 12px 5%;
+  }
+  .navbar .logo {
+    font-size: 1.5rem;
+  }
+  .navbar nav ul li a {
+    font-size: 1.2rem;
+  }
+  .dropdown-content {
+    min-width: 160px;
+  }
+  .dropdown-content li a {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 5%;
+  }
+  .navbar .logo {
+    font-size: 1.2rem;
+  }
+  .navbar nav ul {
+    gap: 15px;
+  }
+  .navbar nav ul li a {
+    font-size: 1rem;
+  }
+  .dropdown-content {
+    min-width: 140px;
+    left: 0;
+    transform: none;
+  }
+  .dropdown-content li a {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 5%;
+  }
+  .navbar .logo {
+    font-size: 1rem;
+  }
+  .navbar nav ul {
+    gap: 10px;
+  }
+  .navbar nav ul li a {
+    font-size: 0.8rem;
+  }
+  .dropdown-content {
+    min-width: 120px;
+  }
+  .dropdown-content li a {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+
+
+.artwork-container {
+  width: 100%;
+  text-align: center;
+}
+
+
+.artwork-frame {
+  width: 1200px;
+  height: 600px;
+  border: 5px solid #000;
+  background-color: #000;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.artwork-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+
+.artwork-info {
+  margin-top: 10px;
+}
+
+.artwork-info p {
+  font-size: 1.2rem;
+  line-height: 1;
+  margin: 1rem 0;
+}
+
+/* controls button */
+.controls button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+
+.controls button:hover {
+  background-color: #555;
+}
+
+
+.scroll-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  cursor: grab;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-container:active {
+  cursor: grabbing;
+}
+
+/* content-sections */
+.content-sections {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 50px;
+  background-color: #f8f8f8;
+}
+
+/* content-section */
+.content-section {
+  margin-top: 30px;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h2 {
+  font-size: 2rem;
+  font-family: 'Italiana', serif;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.content-section p,
+.content-section .text-content {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  font-family: 'Literata', serif;
+  text-align: justify;
+}
+
+.content-section .section-content {
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.content-section .image-content {
+  width: 100%;
+  height: auto;
+}
+
+.content-section .image-content img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.content-section h2 {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* artist-biography */
+#artist-biography .section-content {
+  display: grid;
+  grid-template-columns: 3fr 10fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+#artist-biography .artist-image {
+  width: 100%;
+  height: auto;
+}
+
+#artist-biography .artist-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+#artist-biography .text-content {
+  padding-top: 0;
+}
+
+
+.footer {
+  color: #fff;
+  text-align: center;
+  padding: 2rem 0;
+  font-family: 'Times New Roman', serif;
+  font-size: 1.1rem;
+}
+
+.footer-container a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.footer-container a:hover {
+  text-decoration: underline;
+}
+
+.footer-container p {
+  margin: 0.8rem 0;
+}
+
+/* Ensure proper spacing between content sections */
+.artwork-container + .content-sections {
+  margin-top: 30px;
+}
+
+.content-section + .content-section {
+  margin-top: 30px;
+}
+
+
+@media (max-width: 1200px) {
+  .navbar .logo {
+    font-size: 1.5rem;
+  }
+
+  .navbar nav ul li a {
+    font-size: 1.3rem;
+  }
+
+  .artwork-frame {
+    width: 100%;
+    height: auto;
+  }
+
+  .content-sections {
+    padding: 20px;
+  }
+
+  .content-section {
+    padding: 15px;
+  }
+
+  .content-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .content-section p {
+    font-size: 1.2rem;
+  }
+
+  .footer {
+    font-size: 1rem;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar nav ul {
+    gap: 15px;
+  }
+
+  .artwork-frame {
+    width: 90%;
+    height: auto;
+  }
+
+  .content-sections {
+    padding: 15px;
+  }
+
+  .content-section {
+    padding: 10px;
+  }
+
+  .content-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .content-section p {
+    font-size: 1.1rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .navbar nav ul li a {
+    font-size: 1.1rem;
+  }
+
+  .artwork-frame {
+    width: 100%;
+    height: auto;
+  }
+
+  .content-sections {
+    padding: 10px;
+  }
+
+  .content-section {
+    padding: 8px;
+  }
+
+  .content-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .content-section p {
+    font-size: 1rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 15px;
+  }
+
+  .navbar nav ul {
+    gap: 10px;
+  }
+
+  .navbar nav ul li a {
+    font-size: 1rem;
+  }
+
+  .artwork-frame {
+    width: 100%;
+    height: auto;
+  }
+
+  .content-sections {
+    padding: 10px;
+  }
+
+  .content-section {
+    padding: 6px;
+  }
+
+  .content-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .content-section p {
+    font-size: 0.9rem;
+  }
+
+  .footer {
+    font-size: 0.9rem;
+  }
+}
+

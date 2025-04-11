@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeline - The Art Map of London</title>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Literata&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="timeline.css">
+  <style>
+
+    .timeline-container {
+      margin: 3rem auto;
+      max-width: 1200px;
+      padding: 1.1rem;
+      color: #333;
+      font-size:1.9rem
+    }
+    .timeline {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 100%;
+      background: #aaa;
+    }
+    .timeline-item {
+      position: relative;
+      margin: 2rem 0;
+    }
+    .timeline-item:nth-child(odd) {
+      text-align: right;
+    }
+    .timeline-item:nth-child(even) {
+      text-align: left;
+    }
+    .timeline-item .content {
+      position: relative;
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      max-width: 45%;
+      font-size: 1.3rem
+    }
+    .timeline-item:nth-child(odd) .content {
+      margin-left: auto;
+    }
+    .timeline-item:nth-child(even) .content {
+      margin-right: auto;
+    }
+    .timeline-item .date {
+      font-size: 1.3rem;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 1rem;
+      width: 16px;
+      height: 16px;
+      background: #333;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .timeline-item:nth-child(odd)::before {
+      right: -8px;
+    }
+    .timeline-item:nth-child(even)::before {
+      left: -8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="navbar">
+      <h1 class="logo">The Art Map of London</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#map" class="dropbtn">Map</a>
+            <ul class="dropdown-content">
+              <li><a href="stpauls.html">St. Paul's Cathedral</a></li>
+              <li><a href="greenwich.html">Greenwich</a></li>
+              <li><a href="chelsea.html">Chelsea</a></li>
+              <li><a href="hyde-park.html">Hyde Park</a></li>
+              <li><a href="house-of-parliament.html">Palace of Westminster</a></li>
+              <li><a href="piccadilly.html">Piccadilly Circus</a></li>
+            </ul>
+          </li>
+          <li><a href="timeline.html">Timeline</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Timeline Section -->
+  <section class="timeline-container">
+    <h1>Historical Timeline</h1>
+    <ul class="timeline">
+      <li class="timeline-item">
+        <div class="content">
+          <h2>18th Century: The Age of Enlightenment and the Dawn of the Industrial Revolution</h2>
+          <p class="date">1700s</p>
+          <p><strong>Background:</strong> Enlightenment ideals emphasized reason, science, and individual freedoms. The Industrial Revolution began in the late 18th century, transitioning from manual to machine-based production. Britain established itself as a maritime power with colonial expansion.</p>
+          <p><strong>Impact on London:</strong> London saw economic prosperity, population growth, cultural flourishing, and social inequality during this period.</p>
+        </div>
+      </li>
+      <li class="timeline-item">
+        <div class="content">
+          <h2>19th Century: The Victorian Era</h2>
+          <p class="date">1837–1901</p>
+          <p><strong>Background:</strong> The Industrial Revolution peaked, establishing Britain as the "workshop of the world." Queen Victoria's reign saw Britain’s global influence expand alongside advances in science and technology.</p>
+          <p><strong>Impact on London:</strong> The city underwent industrial and infrastructure development, faced social challenges, and became a cultural hub while experiencing urban renewal.</p>
+        </div>
+      </li>
+      <li class="timeline-item">
+        <div class="content">
+          <h2>Early 20th Century: The Edwardian Era and the Pre-War Period</h2>
+          <p class="date">1901–1910</p>
+          <p><strong>Background:</strong> The Edwardian period blended opulence with social change. Labor movements and women’s suffrage campaigns reflected societal tensions.</p>
+          <p><strong>Impact on London:</strong> London was a cultural and fashion capital, a focal point for social movements, and a city bracing for global conflict.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+ <footer class="footer">
+  <div class="footer-container">
+    <p>Contact Information: <a href="mailto:yvonnezou1204@gmail.com">yvonnezou1204@gmail.com</a></p>
+    <p>&copy; 2025 The Art Map of London. All rights reserved. Certain images are copyright to their respective owners.</p>
+    <p>This is a non-profit website dedicated to art and culture education.</p>
+  </div>
+</footer>
